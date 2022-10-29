@@ -13,7 +13,6 @@ function AdminBuses() {
   const [buses, setBuses] = useState([]);
   const [selectedBus, setSelectedBus] = useState(null);
 
-
   const getBuses = async () => {
     try {
       dispatch(ShowLoading());
@@ -38,7 +37,7 @@ function AdminBuses() {
       });
       dispatch(HideLoading());
       if (response.data.success) {
-       message.success(response.data.message);
+        message.success(response.data.message);
         getBuses();
       } else {
         message.error(response.data.message);
@@ -73,7 +72,6 @@ function AdminBuses() {
     {
       title: "Date of Journey",
       dataIndex: "date",
-      
     },
     {
       title: "Departure Time",
@@ -106,7 +104,6 @@ function AdminBuses() {
             onClick={() => {
               setSelectedBus(record);
               setShowBusForm(true);
-              
             }}
           ></i>
         </div>
@@ -122,26 +119,74 @@ function AdminBuses() {
       <div className="flex justify-between">
         <PageTitle title="Buses" />
         <button
-          className="bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded"
+          className="bg-transparent bg-pink-400 text-white  font-semibold hover:text-white mb-4 px-5 shadow-pink-200 shadow hover:border-transparent rounded-xl"
           onClick={() => setShowBusForm(true)}
         >
           Add Bus
         </button>
       </div>
-      <Table
-        columns={columns}
-        dataSource={buses}
-        pagination={{ pageSize: 10 }}
-      />
+      <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-pink-500 dark:text-white">
+            <tr>
+              <th className="px-4 py-3">Bus Name</th>
+              <th className="px-4 py-3">Bus Number</th>
+              <th className="px-4 py-3">Bus Capacity</th>
+              <th className="px-4 py-3">From City</th>
+              <th className="px-4 py-3">To City</th>
+              <th className="px-4 py-3">Date of Journey</th>
+              <th className="px-4 py-3">Departure Time</th>
+              <th className="px-4 py-3">Arrival Time</th>
+              <th className="px-4 py-3">Price</th>
+              <th className="px-4 py-3">Status</th>
+              <th className="px-4 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {buses.map((bus) => (
+              <tr
+                key={bus._id}
+                className="bg-white dark:bg-gray-700 border-b border-gray-100 dark:border-gray-700"
+              >
+                <td className="px-4 py-3">
+                  <div className="flex items-center text-sm">
+                    <div>
+                      <p className="font-semibold">{bus.name}</p>
+                    </div>
+                  </div>
+                </td>
+                <td className="px-4 py-3 text-sm">{bus.number}</td>
+                <td className="px-4 py-3 text-xs">{bus.seats}</td>
+                <td className="px-4 py-3 text-sm">{bus.from}</td>
+                <td className="px-4 py-3 text-sm">{bus.to}</td>
+                <td className="px-4 py-3 text-sm">{bus.date}</td>
+                <td className="px-4 py-3 text-sm">{bus.departureTime}</td>
+                <td className="px-4 py-3 text-sm">{bus.arrivalTime}</td>
+                <td className="px-4 py-3 text-sm">{bus.price}</td>
+                <td className="px-4 py-3 text-sm">{bus.status}</td>
+                <td className="px-4 py-3 text-sm">
+                  <div className="flex gap-3">
+                    <i
+                      className="ri-delete-bin-line cursor-pointer"
+                      onClick={() => deleteBus(bus._id)}
+                    ></i>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {showBusForm && (
         <BusForm
           showBusForm={showBusForm}
           setShowBusForm={setShowBusForm}
           type={selectedBus ? "edit" : "add"}
-          selectedBus={selectedBus}   
+          selectedBus={selectedBus}
           setSelectedBus={setSelectedBus}
-           getData={getBuses}
+          getData={getBuses}
+          className="rounded-xl border-2 border-pink-400"
         />
       )}
     </div>

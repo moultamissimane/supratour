@@ -36,7 +36,7 @@ function BusForm({
       getData();
       setShowBusForm(false);
       setSelectedBus(null);
-      dispatch(HideLoading());
+      dispatch(HideLoading());  
     } catch (error) {
       message.error(error.message);
       dispatch(HideLoading());
@@ -53,94 +53,94 @@ function BusForm({
         setShowBusForm(false)
       }}
       footer={false}
-      
+      className="rounded-lg"
     >
       <Form layout="vertical" onFinish={onFinish} initialValues={selectedBus}>
         <Row gutter={[10, 10]}>
           <Col lg={24} xs={24}>
-            <Form.Item label="Bus Name" name="name">
+            <Form.Item label="Bus Name" name="name" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
+              />
+            </Form.Item>  
+          </Col>
+          <Col lg={12} xs={24}>
+            <Form.Item label="Bus Number" name="number" className="text-xl font-bold">
+              <input
+                type="text"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
-            <Form.Item label="Bus Number" name="number">
+            <Form.Item label="Total Seats" name="seats" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
-            <Form.Item label="Total Seats" name="seats">
+            <Form.Item label="From" name="from" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
-            <Form.Item label="From" name="from">
+            <Form.Item label="To" name="to" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-orange-300 p-2 rounded"
-              />
-            </Form.Item>
-          </Col>
-          <Col lg={12} xs={24}>
-            <Form.Item label="To" name="to">
-              <input
-                type="text"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
-            <Form.Item label="Date" name="date">
+            <Form.Item label="Date" name="date" className="text-xl font-bold">
               <input
                 type="date"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
-            <Form.Item label="Departure Time" name="departureTime">
+            <Form.Item label="Departure Time" name="departureTime" className="text-xl font-bold">
               <input
                 type="time"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={8} xs={24}>
-            <Form.Item label="Arrival Time" name="arrivalTime">
+            <Form.Item label="Arrival Time" name="arrivalTime" className="text-xl font-bold">
               <input
                 type="time"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
-            <Form.Item label="Price" name="price">
+            <Form.Item label="Price" name="price" className="text-xl font-bold">
               <input
                 type="number"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
           <Col lg={12} xs={24}>
-            <Form.Item label="Type" name="type">
+            <Form.Item label="Type" name="type" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-orange-300 p-2 rounded"
+                className="w-full border border-pink-300 p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
         </Row>
         <div className="flex justify-center">
           <button
-            className="bg-transparent hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded"
+            className="bg-transparent font-bold hover:bg-pink-500 text-pink-700 hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded"
             type="submit"
           >
             Save

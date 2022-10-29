@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ShowLoading, HideLoading } from "../redux/alertsSlice";
+import Logo from "../assets/Logo.png";
+import supraTour from "../assets/SupraTour.jpg";
 
 function Register() {
   const navigate = useNavigate();
@@ -26,139 +28,94 @@ function Register() {
   };
 
   return (
-    // <div className="flex justify-center">
-    //     <h2 className="text-4xl font-bold text-center text-black ">
-    //       Bienvenue à
-    //     </h2>
-    //     <h2 className="text-4xl font-bold text-center text-orange-500">
-    //       Supratours
-    //     </h2>
-    //   <Form layout="vertical" onFinish={onFinish}>
-    //     <Form.Item label="Name"  name="name">
-    //       <input
-    //         type="text"
-
-    //         placeholder="joe doe"
-    //         // onChange={(e) => setPhonenumber(e.target.value)}
-    //         className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-    //         autoFocus
-    //         autoComplete="true"
-    //         required
-    //       />
-    //     </Form.Item>
-    //     <Form.Item label="Email" name="email">
-    //       <input
-    //         type="email"
-
-    //         placeholder="test@gmail.com"
-    //         // onChange={(e) => setPhonenumber(e.target.value)}
-    //         className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-    //         autoFocus
-    //         autoComplete="true"
-    //         required
-    //       />
-    //     </Form.Item>
-    //     <Form.Item label="Password" name="password" >
-    //       <input
-    //         type="password"
-
-    //         placeholder="********"
-    //         // onChange={(e) => setPhonenumber(e.target.value)}
-    //         className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-    //         autoFocus
-    //         autoComplete="true"
-    //         required
-    //       />
-    //     </Form.Item>
-
-    //     <button className="w-full block bg-orange-500 hover:bg-orange-400 focus:bg-orange-400 text-white font-semibold rounded-lg px-4 py-3 mt-6">
-    //       Register
-    //     </button>
-    //     <div className="flex justify-center items-center mt-6">
-    //       <Link
-    //         to="/login"
-    //         className="inline-block text-sm text-orange-500 align-baseline hover:text-orange-800"
-    //       >
-    //         Already have an account? Login!
-    //       </Link>
-    //     </div>
-    //   </Form>
-    // </div>
     <div
-      className="bg-no-repeat bg-cover bg-center w-screen h-screen"
+      className="bg-no-repeat bg-cover bg-center relative"
       style={{
-        backgroundImage:
-          "url(https://as1.ftcdn.net/v2/jpg/05/30/14/94/1000_F_530149440_dOufDGgeDawe2YaFgltTnPwqzHfgUVKy.jpg)",
+        backgroundImage: `url(${supraTour})`,
       }}
     >
-      <div className="absolute bg-gradient-to-b from-black to-black opacity-75 inset-0 z-0" />
-
+      <div className="absolute bg-gradient-to-b from-gray-600 to-black opacity-75 inset-0 z-0" />
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
+        <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-4xl  z-10">
+          <div className="self-start hidden lg:flex flex-col  text-white">
+            <h1 className="mb-3 font-bold text-4xl text-white">
+              Welcome to Supratour{" "}
+            </h1>
+            <p className="pr-3 text-base">
+              The official website to book your reservation
+              <br />
+              for your next trip without any hassle.
+            </p>
+          </div>
+        </div>
         <div className="flex justify-center self-center  z-10">
-          <div className="p-12 bg-white mx-auto rounded-2xl w-100  ">
+          <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
             <div className="mb-4">
+              <img
+                src={Logo}
+                alt="supratour-logo"
+                className="drop-shadow ml-24 mb-3 w-20 h-20 rounded-full items-center"
+              />
+
               <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
-              <p className="text-gray-500">Please sign in to your account.</p>
+              <p className="text-gray-500 text-base">
+                Please sign in to your account.
+              </p>
             </div>
-            <div className="space-y-5">
-              <Form layout="vertical" onFinish={onFinish}>
-                <Form.Item label="Name" name="name">
+            <Form layout="vertical" onFinish={onFinish}>
+              <div className="space-y-5">
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700 tracking-wide">
+                    Name
+                  </label>
                   <input
+                    className=" w-full bg-white text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-gray-600"
                     type="text"
-                    placeholder="joe doe"
-                    className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                    autoFocus
-                    autoComplete="true"
-                    required
+                    placeholder="Enter your full name"
                   />
-                </Form.Item>
+                </div>
                 <Form.Item label="Email" name="email">
-                  <input
-                    type="email"
-                    placeholder="test@gmail.com"
-                    className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                    autoFocus
-                    autoComplete="true"
-                    required
-                  />
+                  <div className="space-y-2">
+                    {/* <label className="text-sm font-medium text-gray-700 tracking-wide">
+                    Email
+                  </label> */}
+
+                    <input
+                      className=" w-full bg-white text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-gray-600"
+                      type="email"
+                      placeholder="mail@gmail.com"
+                    />
+                  </div>
                 </Form.Item>
                 <Form.Item label="Password" name="password">
-                  <input
-                    type="password"
-                    placeholder="********"
-                    className=" px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-orange-500 focus:bg-white focus:outline-none"
-                    autoFocus
-                    autoComplete="true"
-                    required
-                  />
+                  <div className="space-y-2">
+                    {/* <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
+                    Password
+                  </label> */}
+                    <input
+                      className="w-full bg-white content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-gray-600"
+                      type="password"
+                      placeholder="Enter your password"
+                    />
+                  </div>
                 </Form.Item>
-
-              
-                <div class="flex justify-center">
+                <div>
                   <button
-                    class="bg-none cursor-pointer inline-block flex-shrink-0 text-2xl py-3 px-3 relative text-white no-underline z-10 font-bold
-  before:bg-yellow-400 before:h-full before:absolute before:w-full before:-z-10 before:top-3 before:right-3
-  after:border-black after:border-solid after:border-2 after:h-full after:opacity-100 after:absolute after:top-0 after:right-0 after:w-full
-  hover:before:translate-x-3 hover:before:-translate-y-3
-  hover:after:-translate-x-3 hover:after:translate-y-3
-  hover:before:transition-transform hover:before:duration-500 hover:before:ease-in
-  hover:after:transition-transform hover:after:duration-500 hover:after:ease-in
-  after:transition-transform after:duration-500
-  before:transition-transform before:duration-500
-  "
+                    type="submit"
+                    className="w-full text-xl flex justify-center outline-none bg-gray-400 border border-neutral-800 hover:border-neutral-800 hover:bg-gray-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                   >
-                    Register
+                    Sign In
                   </button>
                 </div>
-                <div className="flex justify-center items-center mt-6">
-                  <Link
-                     to="/login"
-                    className="inline-block text-sm text-orange-500 align-baseline hover:text-orange-800"
-                  >
-                    Already have an account? Login!
-                  </Link>
-                </div>
-              </Form>
+              </div>
+            </Form>
+            <div className="pt-5 text-center text-gray-400 text-xs">
+              <span>Already have an account?</span>
+              <Link to="/Login" className="no-underline">
+                <h2 className="text-xl text-gray-500 hover:text-white mt-5 rounded-full p-2   hover:shadow-xl hover:bg-black transition ease-in duration-500">
+                  Log In
+                </h2>
+              </Link>
             </div>
           </div>
         </div>

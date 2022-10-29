@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import LogoutIcon from '@mui/icons-material/Logout';
+import HomeIcon from '@mui/icons-material/Home';
+import Face4Icon from '@mui/icons-material/Face4';
 
 function DefaultLayout({ children }) {
   const navigate = useNavigate();
@@ -11,73 +15,69 @@ function DefaultLayout({ children }) {
     {
       name: "Home",
       path: "/",
-      icon: "ri-home-line",
+      icon: <HomeIcon />,
     },
     {
       name: "Bookings",
       path: "/bookings",
-      icon: "ri-file-list-line",
+      icon: <LibraryBooksIcon/>,
     },
     {
       name: "Profile",
       path: "/profile",
-      icon: "ri-user-line",
+      icon: <Face4Icon />,
     },
     {
       name: "Logout",
       path: "/logout",
-      icon: "ri-logout-box-line",
+      icon: <LogoutIcon />,
     },
   ];
   const adminMenu = [
     {
       name: "Home",
       path: "/admin",
-      icon: "ri-home-line",
+      icon: <HomeIcon />,
     },
     {
       name: "Buses",
       path: "/admin/buses",
-      icon: "ri-bus-line",
-    },
-    {
-      name: "Users",
-      path: "/admin/users",
-      icon: "ri-user-line",
+      icon: <DirectionsBusIcon/>,
     },
     {
       name: "Bookings",
       path: "/admin/bookings",
-      icon: "ri-file-list-line",
+      icon: <LibraryBooksIcon/>,
     },
     {
       name: "Logout",
       path: "/logout",
-      icon: "ri-logout-box-line",
+      icon: <LogoutIcon/>,
     },
   ];
   const menutoBeRendered = user?.isAdmin ? adminMenu : userMenu;
   const activeRoute = window.location.pathname;
   return (
     <div className="layout-parent flex w-full  h-screen gap-[20px]">
-      <div className="sidebar bg-orange-600 flex flex-col justify-start px-5 py-0  ">
+      <div className="sidebar bg-pink-400 flex flex-col justify-start px-5 py-0  ">
         <div className="sidebar-header">
-          <h1 className="text-white text-[20px] mb-0 p-0 ">IL-MEGLIO</h1>
+          <h1 className="text-white text-[20px] mb-0 p-0 ">Supra@Tours</h1>
           <h1 className="role text-white text-[16px] mb-0 p-0 ">
-            Hi {user?.name} <br />
+            Welcome {user?.name} <br />
             {/* {user?.isAdmin ? "Admin" : "User"} */}
           </h1>
         </div>
         <div className="flex flex-col gap-5 justify-start mt-[150px] ">
-          {menutoBeRendered.map((item, index) => {
+          {menutoBeRendered.map((item, idx) => {
             return (
               <div
+              key={idx}
                 className={`${
                   activeRoute === item.path &&
-                  "border-l-4 border-yellow-600 rounded-lg bg-orange-800"
-                } " text-[20px] gap-10 mr-[10px] text-white flex items-center hover:bg-orange-800 hover:rounded-lg duration-200 justify-start py-[5px] px-[15px] w-full cursor-pointer transition-[0.2s]"`}
+                  "border-l-4 border-pink-600 rounded-lg bg-pink-800"
+                } " text-[20px] gap-10 mr-[10px] text-white flex items-center hover:bg-pink-800 hover:rounded-lg duration-200 justify-start py-[5px] px-[15px] w-full cursor-pointer transition-[0.2s]"`}
               >
-                <i className={item.icon}></i>
+                <span>{item.icon}</span>
                 {!collapsed && (
                   <span
                     onClick={() => {
