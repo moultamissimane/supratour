@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
@@ -11,7 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 function DefaultLayout({ children }) {
   const navigate = useNavigate();
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [collapsed, setCollapsed] = useState(false);
   const { user } = useSelector((state) => state.users);
   const userMenu = [
     {
@@ -64,7 +64,7 @@ function DefaultLayout({ children }) {
       className="layout-parent flex w-full  h-screen gap-[20px]"
       style={{ fontFamily: "quicksand" }}
     >
-      <div className="sidebar bg-pink-400 flex flex-col justify-start px-5 py-0  ">
+      <div className="sidebar bg-pink-400 h-screen flex flex-col justify-start px-5 py-0  ">
         <div className="sidebar-header">
           <h1 className="text-white text-2xl mb-0 p-2 text-center font-bold">
             Supra
