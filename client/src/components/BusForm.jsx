@@ -3,6 +3,7 @@ import { Col, Form, message, Modal, Row } from "antd";
 import { axiosInstance } from "../helpers/axiosInstance";
 import { useDispatch } from "react-redux";
 import { ShowLoading, HideLoading } from "../redux/alertsSlice";
+
 // import moment from "moment";
 
 function BusForm({
@@ -53,7 +54,7 @@ function BusForm({
         setShowBusForm(false)
       }}
       footer={false}
-      className="rounded-lg"
+      className="rounded-xl text-center text-xl font-bold" 
     >
       <Form layout="vertical" onFinish={onFinish} initialValues={selectedBus}>
         <Row gutter={[10, 10]}>
