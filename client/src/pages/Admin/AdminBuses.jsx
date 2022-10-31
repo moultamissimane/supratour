@@ -6,6 +6,8 @@ import PageTitle from "../../components/PageTitle";
 import { HideLoading, ShowLoading } from "../../redux/alertsSlice";
 import { message, Table } from "antd";
 import { axiosInstance } from "../../helpers/axiosInstance";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+
 
 function AdminBuses() {
   const dispatch = useDispatch();
@@ -115,8 +117,8 @@ function AdminBuses() {
   }, []);
 
   return (
-    <div>
-      <div className="flex justify-between">
+    <>
+      <div className="flex justify-between" style={{ fontFamily: "quicksand" }}>
         <PageTitle title="Buses" />
         <button
           className="bg-transparent bg-pink-400 text-white  font-semibold hover:text-white mb-4 px-5 shadow-pink-200 shadow hover:border-transparent rounded-xl"
@@ -126,7 +128,10 @@ function AdminBuses() {
         </button>
       </div>
       <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <table
+          className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+          style={{ fontFamily: "quicksand" }}
+        >
           <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-pink-500 dark:text-white">
             <tr>
               <th className="px-4 py-3">Bus Name</th>
@@ -166,10 +171,10 @@ function AdminBuses() {
                 <td className="px-4 py-3 text-sm">{bus.status}</td>
                 <td className="px-4 py-3 text-sm">
                   <div className="flex gap-3">
-                    <i
-                      className="ri-delete-bin-line cursor-pointer"
+                    <DeleteForeverIcon
+                      className="text-red-500 cursor-pointer flex justify-center"
                       onClick={() => deleteBus(bus._id)}
-                    ></i>
+                    />
                   </div>
                 </td>
               </tr>
@@ -189,7 +194,7 @@ function AdminBuses() {
           className="rounded-xl border-2 border-pink-400"
         />
       )}
-    </div>
+    </>
   );
 }
 
