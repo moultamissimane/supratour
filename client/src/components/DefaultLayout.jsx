@@ -1,11 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import LogoutIcon from '@mui/icons-material/Logout';
-import HomeIcon from '@mui/icons-material/Home';
-import Face4Icon from '@mui/icons-material/Face4';
+import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import LogoutIcon from "@mui/icons-material/Logout";
+import HomeIcon from "@mui/icons-material/Home";
+import Face4Icon from "@mui/icons-material/Face4";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 function DefaultLayout({ children }) {
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ function DefaultLayout({ children }) {
     {
       name: "Bookings",
       path: "/bookings",
-      icon: <LibraryBooksIcon/>,
+      icon: <LibraryBooksIcon />,
     },
     {
       name: "Profile",
@@ -42,27 +44,34 @@ function DefaultLayout({ children }) {
     {
       name: "Buses",
       path: "/admin/buses",
-      icon: <DirectionsBusIcon/>,
+      icon: <DirectionsBusIcon />,
     },
     {
       name: "Bookings",
       path: "/admin/bookings",
-      icon: <LibraryBooksIcon/>,
+      icon: <LibraryBooksIcon />,
     },
     {
       name: "Logout",
       path: "/logout",
-      icon: <LogoutIcon/>,
+      icon: <LogoutIcon />,
     },
   ];
   const menutoBeRendered = user?.isAdmin ? adminMenu : userMenu;
   const activeRoute = window.location.pathname;
   return (
-    <div className="layout-parent flex w-full  h-screen gap-[20px]">
+    <div
+      className="layout-parent flex w-full  h-screen gap-[20px]"
+      style={{ fontFamily: "quicksand" }}
+    >
       <div className="sidebar bg-pink-400 flex flex-col justify-start px-5 py-0  ">
         <div className="sidebar-header">
-          <h1 className="text-white text-[20px] mb-0 p-0 ">Supra@Tours</h1>
-          <h1 className="role text-white text-[16px] mb-0 p-0 ">
+          <h1 className="text-white text-2xl mb-0 p-2 text-center font-bold">
+            Supra
+            <span className="text-yellow-300">@</span>
+            Tours
+          </h1>
+          <h1 className="role text-white text-[16px] mb-0 p-0 text-center font-semibold text-lg">
             Welcome {user?.name} <br />
             {/* {user?.isAdmin ? "Admin" : "User"} */}
           </h1>
@@ -71,7 +80,7 @@ function DefaultLayout({ children }) {
           {menutoBeRendered.map((item, idx) => {
             return (
               <div
-              key={idx}
+                key={idx}
                 className={`${
                   activeRoute === item.path &&
                   "border-l-4 border-pink-600 rounded-lg bg-pink-800"
@@ -101,19 +110,19 @@ function DefaultLayout({ children }) {
       <div className="body w-full">
         <div className="header shadow-lg w-full p-5  ">
           {collapsed ? (
-            <i
-              className="ri-menu-2-fill cursor-pointer text-[30px]"
+            <MenuIcon
+              className="cursor-pointer text-[30px]"
               onClick={() => {
                 setCollapsed(false);
               }}
-            ></i>
+            />
           ) : (
-            <i
-              className="ri-close-line cursor-pointer text-[30px]"
+            <CloseIcon
+              className="cursor-pointer text-[30px]"
               onClick={() => {
                 setCollapsed(true);
               }}
-            ></i>
+            />
           )}
         </div>
         <div className="content p-[10px]">{children}</div>
