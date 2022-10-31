@@ -26,6 +26,7 @@ function Login() {
       className="bg-no-repeat bg-cover bg-center relative"
       style={{
         backgroundImage: `url(${supraTour})`,
+        fontFamily: 'quicksand'
       }}
     >
       <div className="absolute bg-gradient-to-b from-gray-600 to-black opacity-75 inset-0 z-0" />
@@ -43,14 +44,8 @@ function Login() {
           </div>
         </div>
         <div className="flex justify-center self-center  z-10">
-          <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
+          <div className="p-12 bg-white mx-auto rounded-2xl w-96 ">
             <div className="mb-4">
-              <img
-                src={Logo}
-                alt="supratour-logo"
-                className="drop-shadow ml-24 mb-3 w-20 h-20 rounded-full items-center"
-              />
-
               <h3 className="font-semibold text-2xl text-gray-800">Log In </h3>
               <p className="text-gray-500 text-base">Please log in to your account.</p>
             </div>
