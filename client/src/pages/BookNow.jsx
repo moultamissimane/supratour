@@ -58,14 +58,16 @@ function BookNow() {
   }, []);
 
   return (
-    <div className="overflow-hidden m-5">
+    <div className="overflow-hidden m-1">
       {bus && (
         <Row className="">
           <Col lg={24} xs={24} sm={24}>
-            <div className="text-2xl flex row-auto justify-between">
+            <div className="text-xl flex row-auto justify-start">
               <h1 className="text-start">
                 {bus.name} - {bus.number}
               </h1>
+            </div>
+            <div className="text-xl flex justify-start">
               <h1 className="text-end">
                 <DirectionsBusIcon className="ri-bus-2-fill" />
                 {bus.from} - {bus.to}
