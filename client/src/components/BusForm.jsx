@@ -54,7 +54,7 @@ function BusForm({
         setShowBusForm(false)
       }}
       footer={false}
-      className="rounded-xl text-center text-xl font-bold" 
+      className="rounded-xl text-center  text-xl font-bold" 
     >
       <Form layout="vertical" onFinish={onFinish} initialValues={selectedBus}>
         <Row gutter={[10, 10]}>
@@ -62,7 +62,7 @@ function BusForm({
             <Form.Item label="Bus Name" name="name" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>  
           </Col>
@@ -70,7 +70,7 @@ function BusForm({
             <Form.Item label="Bus Number" name="number" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -78,7 +78,7 @@ function BusForm({
             <Form.Item label="Total Seats" name="seats" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -86,7 +86,7 @@ function BusForm({
             <Form.Item label="From" name="from" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -94,7 +94,7 @@ function BusForm({
             <Form.Item label="To" name="to" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -102,7 +102,7 @@ function BusForm({
             <Form.Item label="Date" name="date" className="text-xl font-bold">
               <input
                 type="date"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -110,7 +110,7 @@ function BusForm({
             <Form.Item label="Departure Time" name="departureTime" className="text-xl font-bold">
               <input
                 type="time"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -118,7 +118,7 @@ function BusForm({
             <Form.Item label="Arrival Time" name="arrivalTime" className="text-xl font-bold">
               <input
                 type="time"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -126,7 +126,7 @@ function BusForm({
             <Form.Item label="Price" name="price" className="text-xl font-bold">
               <input
                 type="number"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
@@ -134,14 +134,14 @@ function BusForm({
             <Form.Item label="Type" name="type" className="text-xl font-bold">
               <input
                 type="text"
-                className="w-full border border-pink-300 p-2 rounded font-normal"
+                className="w-full border border-[#174C4F] p-2 rounded font-normal"
               />
             </Form.Item>
           </Col>
         </Row>
         <div className="flex justify-center">
           <button
-            className="bg-transparent font-bold hover:bg-pink-500 text-pink-700 hover:text-white py-2 px-4 border border-pink-500 hover:border-transparent rounded"
+            className="bg-transparent font-bold hover:bg-[#174C4F] text-[#174C4F] hover:text-white py-2 px-4 border border-[#174C4F] hover:border-transparent rounded"
             type="submit"
           >
             Save

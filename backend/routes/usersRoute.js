@@ -91,8 +91,54 @@ router.post("/get-user-by-id", authMiddlewares , async(req, res) => {  //authMid
         
     }
 });
+
+//get all users
+router.get("/get-all-users", authMiddlewares, async(req, res) => {
+    try {
+        const users = await User.find();  //find all users
+        res.send({
+            message: 'Users fetched successfully.',
+            success: true,
+            data: users,
+        });
+    } catch (error) {
+        res.send({
+            message: 'An error occurred.',
+            success: false,
+            data: null,
+        })
+    }
+});
     
 
 //update user
+router.post("/update-user", authMiddlewares, async(req, res) => {
+    try {
+        const user = await User.findById(req.body.userId);  //find user by id
+        if (req.body.name) {  //if name is provided, update name
+            user.name = req.body.name;
+        }
+        if (req.body.email) {  //if email is provided, update email
+            user.email = req.body.email;
+        }
+        if (req.body.password) {  //if password is provided, update password
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            user.password = hashedPassword;
+        }
+        await user.save();  //save updated user 
+        res.send({
+            message: 'User updated successfully.',
+            success: true,
+            data: null,
+        });
+    } catch (error) {
+        res.send({
+            message: 'An error occurred.',
+            success: false,
+            data: null,
+        })
+    }
+});
+
 
 module.exports = router;

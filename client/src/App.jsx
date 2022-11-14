@@ -1,27 +1,37 @@
-import 'antd/dist/antd.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Home from './pages/Home';
-import PublicRoute from './components/PublicRoute';
-import ProtectedRoute from './components/ProtectedRoute';
-import AdminHome from './pages/Admin/AdminHome';
-import AdminBuses from './pages/Admin/AdminBuses';
-import AdminUsers from './pages/Admin/AdminUsers';
-import AdminBookings from './pages/Admin/AdminBookings';
-import BookNow from './pages/BookNow';
-import Profile from './pages/Profile';
+import "antd/dist/antd.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import PublicRoute from "./components/PublicRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
+// import AdminHome from "./pages/Admin/AdminHome";
+import AdminBuses from "./pages/Admin/AdminBuses";
+import AdminUsers from "./pages/Admin/AdminUsers";
+import AdminBookings from "./pages/Admin/AdminBookings";
+import BookNow from "./pages/BookNow";
+import Profile from "./pages/Profile";
+import Bookings from "./pages/Bookings";
+import LandingPage from "./pages/LandingPage";
 // import Loader from './components/Loader';
 
-
-function App() {
+const App = () => {
   return (
     <div className="App">
       {/* <Loader /> */}
       <BrowserRouter>
         <Routes>
-          <Route
+        <Route
             path="/"
+            element={
+              <PublicRoute>
+                <LandingPage />
+              </PublicRoute>
+            }
+          />
+          
+          <Route
+            path="/Home"
             element={
               <ProtectedRoute>
                 <Home />
@@ -37,6 +47,14 @@ function App() {
             }
           />
           <Route
+            path="/bookings"
+            element={
+              <ProtectedRoute>
+                <Bookings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/profile"
             element={
               <ProtectedRoute>
@@ -44,14 +62,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <AdminHome />
-              </ProtectedRoute>
-            }
-          />
+
           <Route
             path="/admin/buses"
             element={
@@ -96,6 +107,6 @@ function App() {
       </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

@@ -34,8 +34,8 @@ function AdminBuses() {
   const deleteBus = async (id) => {
     try {
       dispatch(ShowLoading());
-      const response = await axiosInstance.post("/api/buses/delete-bus", {
-        _id: id,
+      const response = await axiosInstance.delete(`/api/buses/${id}`, {
+        data: {},
       });
       dispatch(HideLoading());
       if (response.data.success) {
@@ -121,7 +121,7 @@ function AdminBuses() {
       <div className="flex justify-between" style={{ fontFamily: "quicksand" }}>
         <PageTitle title="Buses" />
         <button
-          className="bg-transparent bg-pink-400 text-white  font-semibold hover:text-white mb-4 px-5 shadow-pink-200 shadow hover:border-transparent rounded-xl"
+          className="bg-transparent bg-[#174C4F] text-white  font-semibold hover:text-white mb-4 px-5 shadow-pink-200 shadow hover:border-transparent rounded-xl"
           onClick={() => setShowBusForm(true)}
         >
           Add Bus
@@ -132,7 +132,7 @@ function AdminBuses() {
           className="w-full text-sm text-left text-gray-500 dark:text-gray-400"
           style={{ fontFamily: "quicksand" }}
         >
-          <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-pink-500 dark:text-white">
+          <thead className="text-xs text-white uppercase bg-gray-50 dark:bg-[#174C4F] dark:text-white">
             <tr>
               <th className="px-4 py-3">Bus Name</th>
               <th className="px-4 py-3">Bus Number</th>
@@ -151,7 +151,7 @@ function AdminBuses() {
             {buses.map((bus) => (
               <tr
                 key={bus._id}
-                className="bg-white dark:bg-gray-700 border-b border-gray-100 dark:border-gray-700"
+                className="bg-white dark:bg-black text-white border-b border-gray-100 dark:border-[#174C4F]"
               >
                 <td className="px-4 py-3">
                   <div className="flex items-center text-sm">

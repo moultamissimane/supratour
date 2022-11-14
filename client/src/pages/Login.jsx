@@ -2,8 +2,8 @@ import React from "react";
 import { Form, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import supraTour from "../assets/SupraTour.jpg";
-import Logo from "../assets/Logo.png";
+import Bus from "../assets/bus.jpg";
+// import Logo from "../assets/Logo.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Login() {
       if (response.data.success) {
         message.success(response.data.message);
         localStorage.setItem("token", response.data.data);
-        navigate("/");
+        navigate("/home");
       } else {
         message.error(response.data.message);
       }
@@ -25,16 +25,16 @@ function Login() {
     <div
       className="bg-no-repeat bg-cover bg-center relative"
       style={{
-        backgroundImage: `url(${supraTour})`,
+        backgroundImage: `url(${Bus})`,
         fontFamily: 'quicksand'
       }}
     >
-      <div className="absolute bg-gradient-to-b from-gray-600 to-black opacity-75 inset-0 z-0" />
+      <div className="absolute bg-gradient-to-b from-[#064144] to-[#000000] opacity-50 inset-0 z-0" />
       <div className="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
         <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-4xl  z-10">
           <div className="self-start hidden lg:flex flex-col  text-white">
             <h1 className="mb-3 font-bold text-4xl text-white">
-              Welcome back to Supratour{" "}
+              Welcome back to Supratours{" "}
             </h1>
             <p className="pr-3 text-base">
               The official website to book your reservation
@@ -79,7 +79,7 @@ function Login() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full text-xl flex justify-center outline-none bg-gray-400 border border-neutral-800 hover:border-neutral-800 hover:bg-gray-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                    className="w-full text-xl flex justify-center outline-none bg-[#174C4F] border border-neutral-800 hover:border-neutral-800 hover:bg-[#023235] text-gray-100 p-3  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                   >
                     Log In
                   </button>

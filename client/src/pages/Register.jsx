@@ -5,7 +5,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ShowLoading, HideLoading } from "../redux/alertsSlice";
 import Logo from "../assets/Logo.png";
-import supraTour from "../assets/SupraTour.jpg";
+import Bus from "../assets/bus.jpg";
+
 
 function Register() {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ function Register() {
     <div
       className="bg-no-repeat bg-cover bg-center relative"
       style={{
-        backgroundImage: `url(${supraTour})`,
+        backgroundImage: `url(${Bus})`,
       }}
     >
       <div className="absolute bg-gradient-to-b from-gray-600 to-black opacity-75 inset-0 z-0" />
@@ -51,11 +52,11 @@ function Register() {
         <div className="flex justify-center self-center  z-10">
           <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
             <div className="mb-4">
-              <img
+              {/* <img
                 src={Logo}
                 alt="supratour-logo"
                 className="drop-shadow ml-24 mb-3 w-20 h-20 rounded-full items-center"
-              />
+              /> */}
 
               <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
               <p className="text-gray-500 text-base">
@@ -102,7 +103,7 @@ function Register() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full text-xl flex justify-center outline-none bg-gray-400 border border-neutral-800 hover:border-neutral-800 hover:bg-gray-600 text-gray-100 p-3  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
+                    className="w-full text-xl flex justify-center outline-none bg-[#174C4F] border border-neutral-800 hover:border-neutral-800 hover:bg-[#023235] text-gray-100 p-3  rounded-full tracking-wide font-semibold shadow-lg cursor-pointer transition ease-in duration-500"
                   >
                     Sign In
                   </button>
@@ -112,7 +113,7 @@ function Register() {
             <div className="pt-5 text-center text-gray-400 text-xs">
               <span>Already have an account?</span>
               <Link to="/Login" className="no-underline">
-                <h2 className="text-xl text-gray-500 hover:text-white mt-5 rounded-full p-2   hover:shadow-xl hover:bg-black transition ease-in duration-500">
+                <h2 className="text-xl text-gray-500 hover:text-white mt-5 rounded-full p-2 hover:shadow-xl hover:bg-black transition ease-in duration-500">
                   Log In
                 </h2>
               </Link>
